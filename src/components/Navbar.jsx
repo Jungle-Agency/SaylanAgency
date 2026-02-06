@@ -32,6 +32,7 @@ export default function Navbar() {
         <a href="#" onClick={(e) => handleNavClick(e, 'top')}>Accueil</a>
         <a href="#about" onClick={(e) => handleNavClick(e, 'about')}>Qui sommes nous ?</a>
         <a href="#services" onClick={(e) => handleNavClick(e, 'services')}>Nos services</a>
+        <a href="#portfolio" onClick={(e) => handleNavClick(e, 'portfolio')}>Portfolio</a>
         <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')} className="navbar-cta">Contact</a>
       </div>
 

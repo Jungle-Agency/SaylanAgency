@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, ChevronDown } from 'lucide-react'
 
 const mediaRects = [
   {
@@ -59,6 +59,12 @@ export default function Hero() {
     if (el) el.scrollIntoView({ behavior: 'smooth' })
   }
 
+  const handleScrollDown = (e) => {
+    e.preventDefault()
+    const el = document.getElementById('about')
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
     <section className="hero">
       {/* Decorative floating elements */}
@@ -114,8 +120,8 @@ export default function Hero() {
       <div className="hero-content">
         <motion.p
           className="hero-label"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           Saylan Agency — Geneva, Switzerland
@@ -123,17 +129,17 @@ export default function Hero() {
 
         <motion.h1
           className="hero-title"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 1, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
         >
           Votre agence de <em>marketing</em> & de <em>communication</em>
         </motion.h1>
 
         <motion.p
           className="hero-subtitle"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7 }}
         >
           Nous créons une véritable identité visuelle, un univers cohérent,
@@ -144,16 +150,35 @@ export default function Hero() {
           href="#services"
           className="hero-cta"
           onClick={handleClick}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1 }}
           whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
         >
-          Découvrez nos services
+          <span>Découvrez nos services</span>
           <ArrowRight size={16} />
         </motion.a>
       </div>
 
+      {/* Scroll indicator */}
+      <motion.div
+        className="hero-scroll-indicator"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5, duration: 1 }}
+        onClick={handleScrollDown}
+        style={{ cursor: 'pointer' }}
+      >
+        <span>Découvrir</span>
+        <motion.div
+          animate={{ y: [0, 6, 0] }}
+          transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}
+        >
+          <ChevronDown size={16} />
+        </motion.div>
+        <div className="hero-scroll-line" />
+      </motion.div>
     </section>
   )
 }

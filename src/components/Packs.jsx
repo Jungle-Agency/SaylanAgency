@@ -8,6 +8,7 @@ const packs = [
     id: 'emergence',
     icon: Sparkles,
     name: 'Pack Émergence',
+    featured: false,
     tagline: '(Re)poser les fondations de votre image avec élégance et impact.',
     paragraphs: [
       'Ce pack s\'adresse aux marques, entrepreneurs et prestataires qui souhaitent construire ou rafraîchir leur image de manière intentionnelle. À travers une direction artistique précise, un shooting professionnel et un contenu sur-mesure, nous créons un univers cohérent qui vous ressemble.',
@@ -19,6 +20,7 @@ const packs = [
     id: 'presence',
     icon: TrendingUp,
     name: 'Pack Présence',
+    featured: true,
     tagline: 'Ancrer votre identité sur le long terme, avec régularité, cohérence et stratégie.',
     paragraphs: [
       'Le pack Présence est conçu pour celles et ceux qui souhaitent maintenir une image professionnelle et engageante sur leurs réseaux sociaux, sans avoir à gérer eux-mêmes la partie créative.',
@@ -30,6 +32,7 @@ const packs = [
     id: 'signature',
     icon: Crown,
     name: 'Pack Signature',
+    featured: false,
     tagline: 'Une prise en charge complète de votre communication, pour une image alignée, professionnelle et sans compromis.',
     paragraphs: [
       'Le pack Signature est notre accompagnement le plus complet. Il s\'adresse aux marques et entreprises qui souhaitent confier entièrement leur stratégie digitale et la gestion de leurs réseaux sociaux à une équipe experte.',
@@ -62,11 +65,12 @@ export default function Packs() {
           {packs.map((pack, i) => (
             <motion.div
               key={pack.id}
-              className={`pack-card ${expanded === pack.id ? 'expanded' : ''}`}
+              className={`pack-card ${expanded === pack.id ? 'expanded' : ''} ${pack.featured ? 'pack-card-featured' : ''}`}
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.2 + i * 0.15 }}
             >
+              {pack.featured && <span className="pack-card-badge">Populaire</span>}
               <div className="pack-card-icon">
                 <pack.icon size={24} strokeWidth={1.5} />
               </div>

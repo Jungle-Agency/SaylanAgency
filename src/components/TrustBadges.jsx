@@ -1,25 +1,26 @@
 import { motion } from 'framer-motion'
+import { Shield, Star, Clock, Heart } from 'lucide-react'
 
 const badges = [
-  { icon: '✦', text: 'Service personnalisé' },
-  { icon: '◈', text: 'Qualité premium' },
-  { icon: '❖', text: 'Délais respectés' },
-  { icon: '✧', text: 'Satisfaction garantie' },
+  { icon: Shield, text: 'Service personnalisé' },
+  { icon: Star, text: 'Qualité premium' },
+  { icon: Clock, text: 'Délais respectés' },
+  { icon: Heart, text: 'Satisfaction garantie' },
 ]
 
 export default function TrustBadges() {
   return (
     <div className="trust-badges">
       <div className="trust-badges-track">
-        {[...badges, ...badges].map((badge, i) => (
+        {badges.map((badge, i) => (
           <motion.div
             key={i}
             className="trust-badge"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: i * 0.1 }}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 + i * 0.1 }}
           >
-            <span className="trust-badge-icon">{badge.icon}</span>
+            <badge.icon size={16} className="trust-badge-icon" />
             <span className="trust-badge-text">{badge.text}</span>
           </motion.div>
         ))}

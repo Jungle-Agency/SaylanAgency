@@ -12,24 +12,26 @@ const words = [
 ]
 
 export default function Marquee() {
+  const repeated = [...words, ...words, ...words]
+
   return (
     <div className="marquee">
       <motion.div
         className="marquee-track"
-        animate={{ x: ['0%', '-50%'] }}
+        animate={{ x: ['0%', '-33.333%'] }}
         transition={{
           x: {
             repeat: Infinity,
             repeatType: 'loop',
-            duration: 25,
+            duration: 30,
             ease: 'linear',
           },
         }}
       >
-        {[...words, ...words].map((word, i) => (
+        {repeated.map((word, i) => (
           <span key={i} className="marquee-item">
             {word}
-            <span className="marquee-separator">✦</span>
+            <span className="marquee-separator">&#10022;</span>
           </span>
         ))}
       </motion.div>
