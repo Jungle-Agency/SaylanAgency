@@ -154,15 +154,6 @@ export default function Hero() {
         </motion.a>
       </div>
 
-      <motion.div
-        className="hero-scroll-indicator"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 1.5 }}
-      >
-        <span>Scroll</span>
-        <div className="hero-scroll-line" />
-      </motion.div>
     </section>
   )
 }

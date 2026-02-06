@@ -6,18 +6,19 @@ export default function About() {
 
   return (
     <section id="about" className="section about" ref={ref}>
+
       <div className="about-inner">
         <motion.div
           className="about-image-container"
-          initial={{ opacity: 0, scale: 1.1, filter: 'blur(10px)' }}
-          animate={inView ? { opacity: 1, scale: 1, filter: 'blur(0px)' } : {}}
-          transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={inView ? { opacity: 1, scale: 1 } : {}}
+          transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
         >
           <motion.div
             className="about-image-reveal"
-            initial={{ clipPath: 'inset(0 100% 0 0)' }}
-            animate={inView ? { clipPath: 'inset(0 0% 0 0)' } : {}}
-            transition={{ duration: 1, delay: 0.3, ease: [0.77, 0, 0.175, 1] }}
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.8, delay: 0.3 }}
           >
             <img
               className="about-image"

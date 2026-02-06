@@ -143,16 +143,15 @@ export default function Contact() {
           </div>
 
           <div className="form-group">
-            <label className="form-checkbox">
+            <div className="form-checkbox-wrapper">
+              <span>Vous êtes intéressé par des prestations à la carte</span>
               <input
                 type="checkbox"
                 name="alacarte"
                 checked={form.alacarte}
                 onChange={handleChange}
               />
-              <span className="form-checkbox-custom" />
-              <span>Vous êtes intéressé par des prestations à la carte</span>
-            </label>
+            </div>
           </div>
 
           <div className="form-group">
@@ -168,7 +167,8 @@ export default function Contact() {
           </div>
 
           <div className="form-group">
-            <label className="form-checkbox">
+            <div className="form-checkbox-wrapper">
+              <span>Je suis d&apos;accord avec les conditions générales de ventes et la politique de confidentialité *</span>
               <input
                 type="checkbox"
                 name="consent"
@@ -176,9 +176,7 @@ export default function Contact() {
                 onChange={handleChange}
                 required
               />
-              <span className="form-checkbox-custom" />
-              <span>Je suis d&apos;accord avec les conditions générales de ventes et la politique de confidentialité *</span>
-            </label>
+            </div>
           </div>
 
           <button type="submit" className="form-submit" disabled={!form.consent}>
