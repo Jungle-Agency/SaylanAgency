@@ -53,13 +53,18 @@ export default function Services() {
             <motion.div
               key={service.title}
               className="service-card-5"
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.15 + i * 0.1 }}
+              initial={{ opacity: 0, y: 40, filter: 'blur(8px)' }}
+              animate={inView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
+              transition={{ duration: 0.6, delay: 0.15 + i * 0.12, ease: [0.25, 0.1, 0.25, 1] }}
+              whileHover={{ scale: 1.02 }}
             >
-              <div className="service-card-5-icon">
+              <motion.div
+                className="service-card-5-icon"
+                whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
+                transition={{ duration: 0.5 }}
+              >
                 <service.icon size={28} strokeWidth={1.5} />
-              </div>
+              </motion.div>
               <h3 className="service-card-5-title">{service.title}</h3>
               <p className="service-card-5-desc">{service.desc}</p>
             </motion.div>

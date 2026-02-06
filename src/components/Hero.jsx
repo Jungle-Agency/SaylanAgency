@@ -61,6 +61,10 @@ export default function Hero() {
 
   return (
     <section className="hero">
+      {/* Decorative floating elements */}
+      <div className="deco-circle deco-circle-1" aria-hidden="true" />
+      <div className="deco-circle deco-circle-2" aria-hidden="true" />
+
       {/* Floating media rectangles - desktop only */}
       <div className="hero-video-grid" aria-hidden="true">
         {mediaRects.map((rect) => (
