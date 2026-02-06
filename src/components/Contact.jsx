@@ -151,7 +151,7 @@ export default function Contact() {
                 onChange={handleChange}
               />
               <span className="form-checkbox-custom" />
-              Vous êtes intéressé par des prestations à la carte
+              <span>Vous êtes intéressé par des prestations à la carte</span>
             </label>
           </div>
 
@@ -177,7 +177,7 @@ export default function Contact() {
                 required
               />
               <span className="form-checkbox-custom" />
-              Je suis d&apos;accord avec les conditions générales de ventes et la politique de confidentialité *
+              <span>Je suis d&apos;accord avec les conditions générales de ventes et la politique de confidentialité *</span>
             </label>
           </div>
 
