@@ -15,8 +15,8 @@ export default function About() {
         >
           <img
             className="about-image"
-            src="/media/image-proxy.jpeg"
-            alt="Saylan Agency — Behind the scenes"
+            src="/media/jihanesalma.jpeg"
+            alt="Jihane & Salma — Fondatrices de Saylan Agency"
           />
         </motion.div>
 
