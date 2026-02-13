@@ -22,7 +22,7 @@ export default function Navbar() {
   }
 
   return (
-    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`} role="navigation" aria-label="Navigation principale">
       <a href="#" className="navbar-logo" onClick={(e) => handleNavClick(e, 'top')}>
         <span className="navbar-logo-main">SAYLAN</span>
         <span className="navbar-logo-sub">AGENCY</span>
@@ -36,14 +36,16 @@ export default function Navbar() {
         <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')} className="navbar-cta">Contact</a>
       </div>
 
-      <div
+      <button
         className={`navbar-mobile-toggle ${mobileOpen ? 'open' : ''}`}
         onClick={() => setMobileOpen(!mobileOpen)}
+        aria-label={mobileOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+        aria-expanded={mobileOpen}
       >
         <span />
         <span />
         <span />
-      </div>
+      </button>
     </nav>
   )
 }

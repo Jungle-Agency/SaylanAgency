@@ -86,6 +86,8 @@ export default function Packs() {
               <button
                 className="pack-card-toggle"
                 onClick={() => setExpanded(expanded === pack.id ? null : pack.id)}
+                aria-expanded={expanded === pack.id}
+                aria-label={`${expanded === pack.id ? 'Voir moins' : 'En savoir plus'} sur ${pack.name}`}
               >
                 {expanded === pack.id ? 'Voir moins' : 'En savoir plus'}
                 <ArrowRight size={14} />

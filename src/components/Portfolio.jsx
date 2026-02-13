@@ -1,50 +1,55 @@
 import { motion } from 'framer-motion'
-import { ArrowUpRight, Instagram } from 'lucide-react'
+import { Instagram } from 'lucide-react'
 import { useInView } from '../hooks/useInView'
 
 const projects = [
   {
-    client: 'The Perfect Coffee',
-    category: 'Réels & vidéos',
+    client: 'Grand Brasserie',
+    category: 'Création de contenu',
+    location: 'New York City',
+    type: 'image',
+    src: '/media/Grande_brasserie.webp',
+    aspect: '4/5',
+  },
+  {
+    client: 'Hôtel Paramount',
+    category: 'Création de contenu',
+    location: 'Dubai',
     type: 'video',
-    src: '/media/portfolio1.mp4',
-    poster: '/media/theperfectcoffee.png',
+    src: '/media/Paramount_hotel.mp4',
     aspect: '4/5',
   },
   {
-    client: 'Boutique Éclat',
-    category: 'Réels & vidéos',
-    type: 'gradient',
-    gradient: 'linear-gradient(135deg, #c9a87c 0%, #4a3728 100%)',
-    aspect: '1/1',
-  },
-  {
-    client: 'Maison Nour',
-    category: 'Storytelling',
-    type: 'gradient',
-    gradient: 'linear-gradient(135deg, #b5a08a 0%, #6d5540 100%)',
-    aspect: '4/5',
-  },
-  {
-    client: 'Atelier Genève',
+    client: 'Dognroll',
     category: 'Community Management',
-    type: 'gradient',
-    gradient: 'linear-gradient(135deg, #e6dbd0 0%, #a88b62 100%)',
-    aspect: '1/1',
-  },
-  {
-    client: 'Événements Luxe SA',
-    category: 'Événement intime',
-    type: 'gradient',
-    gradient: 'linear-gradient(135deg, #8b6f56 0%, #2c2118 100%)',
+    location: 'Genève',
+    type: 'image',
+    src: '/media/DOGNROLL.webp',
     aspect: '4/5',
   },
   {
-    client: 'Maison Dorée',
-    category: 'Shooting photo',
-    type: 'gradient',
-    gradient: 'linear-gradient(135deg, #a88b62 0%, #d4c4b0 100%)',
-    aspect: '1/1',
+    client: 'Saveurs Abidjanaises',
+    category: 'Community Management',
+    location: 'Ferney',
+    type: 'image',
+    src: '/media/SAVEURS_ABIDJANAISES.webp',
+    aspect: '4/5',
+  },
+  {
+    client: 'Bahja',
+    category: 'Logo',
+    location: 'Paris',
+    type: 'image',
+    src: '/media/Bahja_Paris.webp',
+    aspect: '4/5',
+  },
+  {
+    client: 'Royal Hair Swiss',
+    category: 'Création de contenu',
+    location: 'Lausanne',
+    type: 'image',
+    src: '/media/Royal_Hair_Swiss.webp',
+    aspect: '4/5',
   },
 ]
 
@@ -98,6 +103,7 @@ export default function Portfolio() {
                       className="portfolio-card-poster"
                       src={project.poster}
                       alt={project.client}
+                      loading="lazy"
                     />
                   )}
                   <video
@@ -106,6 +112,8 @@ export default function Portfolio() {
                     loop
                     muted
                     playsInline
+                    preload="metadata"
+                    aria-label={`Vidéo : ${project.client}`}
                   />
                 </>
               ) : project.type === 'image' ? (
@@ -113,6 +121,7 @@ export default function Portfolio() {
                   className="portfolio-card-media"
                   src={project.src}
                   alt={project.client}
+                  loading="lazy"
                 />
               ) : (
                 <div
@@ -120,12 +129,14 @@ export default function Portfolio() {
                   style={{ background: project.gradient }}
                 />
               )}
-              <div className="portfolio-card-overlay">
-                <span className="portfolio-card-category">
-                  {project.category}
-                </span>
+              <div className="portfolio-card-info">
                 <h3 className="portfolio-card-client">{project.client}</h3>
-                <ArrowUpRight size={18} className="portfolio-card-arrow" />
+                <div className="portfolio-card-hover-details">
+                  <span className="portfolio-card-category">{project.category}</span>
+                  {project.location && (
+                    <span className="portfolio-card-location-text">{project.location}</span>
+                  )}
+                </div>
               </div>
             </motion.div>
           ))}

@@ -223,10 +223,14 @@
   color: rgba(255, 255, 255, 0.8);
 }
 
+.hero-mobile-logo {
+  display: none;
+}
+
 /* Hero content - centered above rectangles */
 .hero-content {
   position: relative;
-  z-index: 10;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -673,23 +677,17 @@
 
 .services-grid-5 {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 2px;
 }
 
 .service-card-5 {
-  grid-column: span 2;
   padding: 2.5rem 2rem;
   background: var(--color-nude-light);
   transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
   position: relative;
   overflow: hidden;
   text-align: center;
-}
-
-/* Center the last 2 cards */
-.service-card-5:nth-child(4) {
-  grid-column: 2 / span 2;
 }
 
 .service-card-5::before {
@@ -854,86 +852,56 @@
 }
 
 .portfolio-card-video {
-  opacity: 0;
-}
-
-.portfolio-card:hover .portfolio-card-video {
   opacity: 1;
 }
 
-.portfolio-card:hover .portfolio-card-poster {
-  opacity: 0;
-}
-
-.portfolio-card-overlay {
+.portfolio-card-info {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    transparent 30%,
-    rgba(44, 33, 24, 0.9) 100%
-  );
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.75rem 2rem;
+  background: linear-gradient(180deg, transparent 0%, rgba(44, 33, 24, 0.8) 100%);
+  z-index: 1;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding: 1.5rem;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-.portfolio-card:hover .portfolio-card-overlay {
-  opacity: 1;
-}
-
-.portfolio-card-category {
-  font-size: 0.65rem;
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--color-accent);
-  margin-bottom: 0.35rem;
-  transform: translateY(15px);
-  opacity: 0;
-  transition: transform 0.4s ease 0.1s, opacity 0.4s ease 0.1s;
-}
-
-.portfolio-card:hover .portfolio-card-category {
-  transform: translateY(0);
-  opacity: 1;
+  gap: 0.3rem;
 }
 
 .portfolio-card-client {
   font-family: var(--font-serif);
-  font-size: 1.15rem;
-  font-weight: 400;
+  font-size: 2.2rem;
+  font-weight: 500;
   color: var(--color-white);
-  transform: translateY(15px);
-  opacity: 0;
-  transition: transform 0.4s ease 0.15s, opacity 0.4s ease 0.15s;
 }
 
-.portfolio-card:hover .portfolio-card-client {
-  transform: translateY(0);
+.portfolio-card-hover-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.4s ease;
+}
+
+.portfolio-card:hover .portfolio-card-hover-details {
+  max-height: 80px;
   opacity: 1;
 }
 
-.portfolio-card-arrow {
-  position: absolute;
-  top: 1.25rem;
-  right: 1.25rem;
-  color: var(--color-white);
-  opacity: 0;
-  transform: translate(-8px, 8px) scale(0.8);
-  transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1) 0.2s;
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(8px);
-  padding: 0.5rem;
-  border-radius: 50%;
+.portfolio-card-category {
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent);
 }
 
-.portfolio-card:hover .portfolio-card-arrow {
-  opacity: 1;
-  transform: translate(0, 0) scale(1);
+.portfolio-card-location-text {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .portfolio-cta {
@@ -1706,6 +1674,20 @@
   cursor: not-allowed;
 }
 
+.form-success {
+  text-align: center;
+  color: #2e7d32;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.form-error {
+  text-align: center;
+  color: #c62828;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
 .form-revoir-packs {
   display: block;
   text-align: center;
@@ -1851,6 +1833,32 @@
   color: var(--color-nude-light);
 }
 
+.footer-copyright {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+}
+
+.jungle-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--color-accent);
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition-base);
+}
+
+.jungle-link:hover {
+  color: var(--color-nude-light);
+}
+
+.jungle-logo {
+  height: 16px;
+  width: auto;
+}
+
 /* ==========================================
    RESPONSIVE
    ========================================== */
@@ -1990,9 +1998,25 @@
     background: transparent;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
-    padding: 2rem 0;
+    padding: 0;
     max-width: 100%;
     border: none;
+    min-height: 70vh;
+    justify-content: center;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 8vw, 3rem);
+    line-height: 1.15;
+  }
+
+  .hero-subtitle {
+    max-width: 100%;
+    font-size: 0.95rem;
+  }
+
+  .hero-label {
+    font-size: 0.65rem;
   }
 
   .portfolio-grid {
@@ -2004,13 +2028,6 @@
     aspect-ratio: 3/2;
   }
 
-  .portfolio-card-overlay {
-    opacity: 1;
-  }
-
-  .portfolio-card-arrow {
-    display: none;
-  }
 
   .services-grid-5 {
     grid-template-columns: 1fr;
@@ -2085,5 +2102,88 @@
 
   .hero-scroll-indicator {
     bottom: 1.5rem;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .section {
+    padding: 3rem 1rem;
+  }
+
+  .navbar-logo-main {
+    font-size: 1.1rem;
+  }
+
+  .navbar-logo-sub {
+    font-size: 0.4rem;
+  }
+
+  .hero {
+    padding: 4rem 1rem 2rem;
+  }
+
+  .hero-cta {
+    padding: 0.85rem 1.75rem;
+    font-size: 0.72rem;
+  }
+
+  .portfolio-grid {
+    gap: 0.75rem;
+  }
+
+  .portfolio-card-client {
+    font-size: 1.5rem;
+  }
+
+  .portfolio-card-category {
+    font-size: 0.75rem;
+  }
+
+  .portfolio-card-location-text {
+    font-size: 0.85rem;
+  }
+
+  .portfolio-card-info {
+    padding: 1.25rem 1.25rem;
+  }
+
+  .service-card-5 {
+    padding: 1.5rem 1rem;
+  }
+
+  .service-card-5-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 0.75rem;
+  }
+
+  .service-card-5-title {
+    font-size: 1rem;
+  }
+
+  .service-card-5-desc {
+    font-size: 0.75rem;
+  }
+
+  .footer {
+    padding: 3rem 1rem 1.5rem;
+  }
+
+  .footer-copyright {
+    font-size: 0.65rem;
+    justify-content: center;
+  }
+
+  .jungle-logo {
+    height: 12px;
+  }
+
+  .contact-form {
+    padding: 1rem;
+  }
+
+  .marquee-item {
+    font-size: 0.85rem;
   }
 }

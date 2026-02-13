@@ -45,7 +45,7 @@ export default function FAQ() {
   }
 
   return (
-    <section className="section faq" ref={ref}>
+    <section id="faq" className="section faq" ref={ref}>
       <div className="faq-inner">
         <motion.div
           className="faq-header"
@@ -71,11 +71,18 @@ export default function FAQ() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.15 + i * 0.08 }}
             >
-              <button className="faq-question" onClick={() => toggle(i)}>
-                <span>{faq.question}</span>
-                <ChevronDown size={18} className="faq-chevron" />
-              </button>
-              <div className="faq-answer">
+              <h3>
+                <button
+                  className="faq-question"
+                  onClick={() => toggle(i)}
+                  aria-expanded={openIndex === i}
+                  aria-controls={`faq-answer-${i}`}
+                >
+                  <span>{faq.question}</span>
+                  <ChevronDown size={18} className="faq-chevron" />
+                </button>
+              </h3>
+              <div className="faq-answer" id={`faq-answer-${i}`} role="region">
                 <p>{faq.answer}</p>
               </div>
             </motion.div>

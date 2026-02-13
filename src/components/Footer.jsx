@@ -28,8 +28,8 @@ export default function Footer() {
               <a
                 href="https://www.instagram.com/saylan.agency/"
                 target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
+                rel="me noopener noreferrer"
+                aria-label="Saylan Agency sur Instagram"
               >
                 <Instagram size={16} />
               </a>
@@ -70,11 +70,7 @@ export default function Footer() {
         </div>
 
         <div className="footer-bottom">
-          <span>Copyright &copy; 2026 Saylan Agency | Fait avec le c&oelig;ur</span>
-          <div className="footer-bottom-links">
-            <a href="#">Mentions légales</a>
-            <a href="#">Politique de confidentialité</a>
-          </div>
+          <span className="footer-copyright">Copyright &copy; 2026 Saylan Agency | Fait par <a href="https://jungle-agency.ch/#" target="_blank" rel="noopener noreferrer" className="jungle-link"><img src="https://jungle-agency.ch/logo.png" alt="Jungle Agency" className="jungle-logo" /> Jungle Agency</a></span>
         </div>
       </div>
     </footer>

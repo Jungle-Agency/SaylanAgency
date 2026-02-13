@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://saylan-agency.com/sitemap.xml

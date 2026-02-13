@@ -15,6 +15,7 @@ export default function Contact() {
     message: '',
     consent: false,
   })
+  const [status, setStatus] = useState('idle') // idle | sending | sent | error
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target
@@ -24,13 +25,35 @@ export default function Contact() {
     }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    const subject = encodeURIComponent('Nouveau projet - Saylan Agency')
-    const body = encodeURIComponent(
-      `Instagram: ${form.instagram}\nEntreprise: ${form.company}\nEmail: ${form.email}\nTéléphone: ${form.phone}\nPack: ${form.pack || 'Non spécifié'}\nÀ la carte: ${form.alacarte ? 'Oui' : 'Non'}\n\nMessage:\n${form.message}`
-    )
-    window.location.href = `mailto:saylanagency@gmail.com?subject=${subject}&body=${body}`
+    setStatus('sending')
+
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/saylanagency@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          _subject: 'Nouveau projet - Saylan Agency',
+          Instagram: form.instagram,
+          Entreprise: form.company,
+          Email: form.email,
+          Téléphone: form.phone,
+          Pack: form.pack || 'Non spécifié',
+          'À la carte': form.alacarte ? 'Oui' : 'Non',
+          Message: form.message,
+        }),
+      })
+
+      if (res.ok) {
+        setStatus('sent')
+        setForm({ instagram: '', company: '', email: '', phone: '', pack: '', alacarte: false, message: '', consent: false })
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    }
   }
 
   return (
@@ -179,10 +202,17 @@ export default function Contact() {
             </div>
           </div>
 
-          <button type="submit" className="form-submit" disabled={!form.consent}>
-            <Send size={16} />
-            Envoyer
+          <button type="submit" className="form-submit" disabled={!form.consent || status === 'sending'} aria-busy={status === 'sending'}>
+            <Send size={16} aria-hidden="true" />
+            {status === 'sending' ? 'Envoi en cours...' : status === 'sent' ? 'Message envoyé !' : 'Envoyer'}
           </button>
+
+          {status === 'sent' && (
+            <p className="form-success" role="status" aria-live="polite">Merci ! Votre message a bien été envoyé. Nous vous recontacterons rapidement.</p>
+          )}
+          {status === 'error' && (
+            <p className="form-error" role="alert" aria-live="assertive">Une erreur est survenue. Veuillez réessayer ou nous contacter directement.</p>
+          )}
 
           <a
             href="#packs"

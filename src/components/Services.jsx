@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Camera, Video, PartyPopper, Users, BookOpen } from 'lucide-react'
+import { Camera, Video, Users, BookOpen } from 'lucide-react'
 import { useInView } from '../hooks/useInView'
 
 const services = [
@@ -12,11 +12,6 @@ const services = [
     icon: Video,
     title: 'Réels et vidéos dynamiques',
     desc: 'Créez des vidéos percutantes pour engager votre audience.',
-  },
-  {
-    icon: PartyPopper,
-    title: 'Événements intimes',
-    desc: 'Anniversaires, baptêmes, ou gender reveals, nous sublimons vos moments uniques.',
   },
   {
     icon: Users,

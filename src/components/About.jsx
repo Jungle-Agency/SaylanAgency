@@ -22,8 +22,9 @@ export default function About() {
           >
             <img
               className="about-image"
-              src="/media/jihanesalma.jpeg"
+              src="/media/jihanesalma.webp"
               alt="Jihane & Salma — Fondatrices de Saylan Agency"
+              loading="lazy"
             />
           </motion.div>
         </motion.div>
