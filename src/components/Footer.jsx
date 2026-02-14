@@ -70,7 +70,7 @@ export default function Footer() {
         </div>
 
         <div className="footer-bottom">
-          <span className="footer-copyright">Copyright &copy; 2026 Saylan Agency | Fait par <a href="https://jungle-agency.ch/#" target="_blank" rel="noopener noreferrer" className="jungle-link"><img src="https://jungle-agency.ch/logo.png" alt="Jungle Agency" className="jungle-logo" /> Jungle Agency</a></span>
+          <span className="footer-copyright">Copyright &copy; 2026 Saylan Agency | Fait par <a href="https://jungle-agency.ch/#" target="_blank" rel="noopener noreferrer" className="jungle-link"><img src="/media/jungle-logo.webp" alt="Jungle Agency" className="jungle-logo" /> Jungle Agency</a></span>
         </div>
       </div>
     </footer>

@@ -10,6 +10,11 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [mobileOpen])
+
   const handleNavClick = (e, id) => {
     e.preventDefault()
     setMobileOpen(false)
@@ -22,7 +27,7 @@ export default function Navbar() {
   }
 
   return (
-    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`} role="navigation" aria-label="Navigation principale">
+    <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${mobileOpen ? 'nav-open' : ''}`} role="navigation" aria-label="Navigation principale">
       <a href="#" className="navbar-logo" onClick={(e) => handleNavClick(e, 'top')}>
         <span className="navbar-logo-main">SAYLAN</span>
         <span className="navbar-logo-sub">AGENCY</span>

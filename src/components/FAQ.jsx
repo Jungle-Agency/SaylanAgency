@@ -6,33 +6,94 @@ import { useInView } from '../hooks/useInView'
 const faqs = [
   {
     question: 'Quels types de services proposez-vous ?',
-    answer:
-      'Nous proposons du shooting photo, de la création de réels et vidéos, la couverture d\'événements intimes, du community management & marketing, ainsi que du storytelling. Nous avons également des packs adaptés à vos besoins (Émergence, Présence, Signature) et des prestations à la carte.',
+    answer: (
+      <>
+        <p>Chez Saylan Agency, nous accompagnons les marques, restaurants et concepts lifestyle dans le développement de leur image et de leur communication digitale.</p>
+        <p>Nos services incluent :</p>
+        <ul>
+          <li>Shooting photo professionnel</li>
+          <li>Création de Reels et contenus vidéo</li>
+          <li>Couverture d'événements (lancements, événements privés, activations)</li>
+          <li>Community management &amp; stratégie marketing</li>
+          <li>Branding &amp; storytelling</li>
+          <li>Direction artistique et accompagnement stratégique</li>
+        </ul>
+        <p>Nous proposons des packs structurés (Émergence, Présence, Signature), ainsi que des prestations sur mesure adaptées aux besoins spécifiques de chaque client.</p>
+        <p>Notre objectif : transformer votre image en véritable levier de visibilité et d'attractivité.</p>
+      </>
+    ),
   },
   {
-    question: 'Comment se déroule une collaboration avec Saylan ?',
-    answer:
-      'Tout commence par un appel découverte pour comprendre votre univers, vos besoins et vos objectifs. Ensuite, nous vous envoyons une proposition sur-mesure. Une fois validée, nous passons à la réalisation. Enfin, nous vous livrons l\'ensemble des contenus finalisés, prêts à être utilisés.',
+    question: 'Comment se déroule une collaboration avec Saylan Agency ?',
+    answer: (
+      <>
+        <p>Chaque collaboration débute par un premier échange, qui peut se faire par appel ou lors d'un rendez-vous physique, afin de comprendre votre univers, votre positionnement, vos objectifs et vos besoins.</p>
+        <p>Cette rencontre nous permet d'analyser votre concept en profondeur et d'identifier les axes d'amélioration stratégiques.</p>
+        <p>À la suite de cet échange, nous vous transmettons une proposition personnalisée, adaptée à votre image et à votre vision.</p>
+        <p>Une fois la collaboration validée, nous passons à la phase de mise en place :</p>
+        <ul>
+          <li>Définition ou ajustement de la stratégie</li>
+          <li>Direction artistique</li>
+          <li>Production de contenus (photo, vidéo, Reels)</li>
+          <li>Planification éditoriale</li>
+          <li>Accompagnement et recommandations continues</li>
+        </ul>
+        <p>Nous assurons ensuite un suivi régulier, afin de garantir cohérence, évolution et performance sur le long terme.</p>
+        <p>Chez Saylan Agency, nous privilégions un accompagnement structuré et humain, fondé sur l'écoute, la proximité et la vision stratégique.</p>
+      </>
+    ),
   },
   {
     question: 'Travaillez-vous uniquement à Genève ?',
-    answer:
-      'Nous sommes basées à Genève, mais nous intervenons dans toute la Suisse romande et au-delà selon les projets. N\'hésitez pas à nous contacter pour discuter de votre localisation.',
+    answer: (
+      <>
+        <p>Saylan Agency est basée à Genève, mais nous accompagnons des clients en Suisse et à l'international.</p>
+        <p>Nous intervenons régulièrement en Suisse romande, ainsi qu'à Dubaï, au Maroc, à Paris et à New York, selon les projets et collaborations.</p>
+        <p>Nous nous déplaçons pour les shootings, les accompagnements stratégiques et les lancements de marque, en adaptant chaque intervention aux besoins spécifiques du client.</p>
+        <p>Chaque collaboration étant unique, nous vous invitons à nous contacter afin d'échanger sur votre localisation et les modalités adaptées à votre projet.</p>
+      </>
+    ),
   },
   {
     question: 'Comment choisir le pack qui me correspond ?',
-    answer:
-      'Le Pack Émergence est idéal si vous débutez et avez besoin de poser les bases de votre image. Le Pack Présence convient à ceux qui veulent affirmer leur identité et gagner en visibilité. Le Pack Signature est pensé pour une stratégie complète et un accompagnement haut de gamme. Vous pouvez aussi opter pour des prestations à la carte.',
+    answer: (
+      <>
+        <p>Le choix du pack dépend avant tout de votre stade de développement, de vos objectifs et du niveau d'accompagnement souhaité.</p>
+        <ul>
+          <li>Le <strong>Pack Émergence</strong> est idéal si vous lancez votre activité ou souhaitez structurer les bases de votre image et de votre communication.</li>
+          <li>Le <strong>Pack Présence</strong> s'adresse aux marques qui souhaitent affirmer leur identité, renforcer leur visibilité et bénéficier d'un accompagnement plus stratégique.</li>
+          <li>Le <strong>Pack Signature</strong> est conçu pour les concepts ambitieux recherchant une stratégie complète, une direction artistique poussée et un accompagnement haut de gamme sur le long terme.</li>
+        </ul>
+        <p>Lors de notre premier échange (appel ou rendez-vous physique), nous vous orientons vers l'accompagnement le plus adapté à votre situation.</p>
+        <p>Il est également possible d'opter pour des prestations à la carte ou une offre entièrement personnalisée selon vos besoins spécifiques.</p>
+      </>
+    ),
   },
   {
     question: 'Quels sont vos délais de livraison ?',
-    answer:
-      'Les délais varient selon la nature et l\'ampleur du projet. Nous définissons ensemble un calendrier clair dès le début de la collaboration, et nous nous engageons à le respecter. En général, comptez entre 1 et 3 semaines selon la prestation.',
+    answer: (
+      <>
+        <p>Les délais varient en fonction de la nature du projet et du volume de contenus à produire.</p>
+        <p>Dès le début de la collaboration, nous établissons un calendrier précis, afin d'assurer une organisation fluide et une livraison dans les délais convenus.</p>
+        <p>À titre indicatif :</p>
+        <ul>
+          <li>Pour un shooting photo / vidéo : la livraison intervient généralement sous <strong>5 à 6 jours ouvrés</strong>.</li>
+          <li>Pour un projet plus structuré (stratégie, branding, accompagnement global) : comptez en moyenne <strong>jusqu'à 10 jours</strong>, selon la complexité du projet.</li>
+        </ul>
+        <p>Nous accordons une grande importance à la réactivité tout en maintenant un niveau d'exigence élevé en matière de qualité.</p>
+      </>
+    ),
   },
   {
     question: 'Puis-je voir des exemples de vos réalisations ?',
-    answer:
-      'Bien sûr ! Vous pouvez consulter notre portfolio sur cette page ou découvrir notre travail directement sur notre compte Instagram @saylanagency. Chaque projet reflète notre engagement pour la qualité et l\'authenticité.',
+    answer: (
+      <>
+        <p>Bien sûr.</p>
+        <p>Vous pouvez découvrir une sélection de nos projets directement sur notre portfolio, ainsi que sur notre compte Instagram <a href="https://www.instagram.com/saylan.agency/" target="_blank" rel="noopener noreferrer">@saylanagency</a>, où nous partageons régulièrement nos collaborations, shootings et accompagnements stratégiques.</p>
+        <p>Chaque réalisation reflète notre exigence en matière d'esthétique, de cohérence et de performance.</p>
+        <p>Si vous souhaitez voir des exemples spécifiques liés à votre secteur (restaurant, beauté, lifestyle, traiteur, etc.), nous pouvons également vous transmettre des références adaptées lors de notre échange.</p>
+      </>
+    ),
   },
 ]
 
@@ -83,7 +144,7 @@ export default function FAQ() {
                 </button>
               </h3>
               <div className="faq-answer" id={`faq-answer-${i}`} role="region">
-                <p>{faq.answer}</p>
+                {faq.answer}
               </div>
             </motion.div>
           ))}
